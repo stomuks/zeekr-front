@@ -1,0 +1,478 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+	:root {
+		--background: 0 0% 100%;
+		--foreground: 0 0% 3.9%;
+		--card: 0 0% 100%;
+		--card-foreground: 0 0% 3.9%;
+		--popover: 0 0% 100%;
+		--popover-foreground: 0 0% 3.9%;
+		--primary: 0 0% 9%;
+		--primary-foreground: 0 0% 98%;
+		--secondary: 0 0% 96.1%;
+		--secondary-foreground: 0 0% 9%;
+		--muted: 0 0% 96.1%;
+		--muted-foreground: 0 0% 45.1%;
+		--accent: 0 0% 96.1%;
+		--accent-foreground: 0 0% 9%;
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 0 0% 98%;
+		--border: 0 0% 89.8%;
+		--input: 0 0% 89.8%;
+		--ring: 0 0% 3.9%;
+		--chart-1: 12 76% 61%;
+		--chart-2: 173 58% 39%;
+		--chart-3: 197 37% 24%;
+		--chart-4: 43 74% 66%;
+		--chart-5: 27 87% 67%;
+		--radius: 0.5rem;
+	}
+	.dark {
+		--background: 0 0% 3.9%;
+		--foreground: 0 0% 98%;
+		--card: 0 0% 3.9%;
+		--card-foreground: 0 0% 98%;
+		--popover: 0 0% 3.9%;
+		--popover-foreground: 0 0% 98%;
+		--primary: 0 0% 98%;
+		--primary-foreground: 0 0% 9%;
+		--secondary: 0 0% 14.9%;
+		--secondary-foreground: 0 0% 98%;
+		--muted: 0 0% 14.9%;
+		--muted-foreground: 0 0% 63.9%;
+		--accent: 0 0% 14.9%;
+		--accent-foreground: 0 0% 98%;
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 0 0% 98%;
+		--border: 0 0% 14.9%;
+		--input: 0 0% 14.9%;
+		--ring: 0 0% 83.1%;
+		--chart-1: 220 70% 50%;
+		--chart-2: 160 60% 45%;
+		--chart-3: 30 80% 55%;
+		--chart-4: 280 65% 60%;
+		--chart-5: 340 75% 55%;
+	}
+}
+@layer base {
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
+}
+
+.container {
+	width: 100%;
+	max-width: 1772px;
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+
+.bg-primary {
+	background: linear-gradient(93.85deg, #000000 3.15%, #d2d2d2 354.31%);
+}
+
+.carousel__navigation-button {
+	transition: all 0.3s ease-in-out;
+	&:hover {
+		@apply bg-blue-300;
+	}
+
+	&[disabled] {
+		@apply bg-gray-100;
+	}
+}
+
+.car__li {
+	display: flex;
+	span {
+		display: inline-flex;
+		font-weight: 500;
+		flex-grow: 1;
+		flex-shrink: 0;
+
+		font-size: 24px;
+		line-height: 30px;
+		@apply text-gray-700;
+
+		&:nth-child(2) {
+			content: '';
+			flex-shrink: 1;
+			width: 100%;
+			margin: 0 5px 3px 5px;
+			border-bottom: 1px solid #6a6f73;
+		}
+	}
+}
+
+.testDrive {
+	min-height: 815px;
+	position: relative;
+	border-radius: 45px;
+	z-index: 1;
+
+	&::after {
+		content: '';
+		background-image: url('/uploads/default/testDrivebg.png');
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-size: cover;
+		border-radius: 45px;
+	}
+
+	> div {
+		position: relative;
+		z-index: 2;
+		background-color: transparent;
+	}
+
+	h2 {
+		color: rgba(255, 255, 255, 0.53);
+		font-family: Montserrat;
+		font-size: 123px;
+		font-style: italic;
+		font-weight: 900;
+		line-height: 136.23px;
+		text-align: center;
+		text-underline-position: from-font;
+		text-decoration-skip-ink: none;
+		padding-top: 27px;
+		margin-left: -27px;
+	}
+}
+
+.bg-lines {
+	position: relative;
+	&::after {
+		content: '';
+		background-image: url('/uploads/default/faq-bg.png');
+		background-repeat: no-repeat;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-size: contain;
+		border-radius: 45px;
+		z-index: -1;
+	}
+}
+
+.bg-carColor {
+	@apply bg-blue-400;
+	position: relative;
+	&::after {
+		content: '';
+		background-image: url('/uploads/default/pattern.png');
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-size: contain;
+		border-radius: 45px;
+	}
+
+	div {
+		z-index: 2;
+	}
+}
+
+.bg-imageText {
+	position: relative;
+	&::after {
+		content: '';
+		background-image: url('/uploads/default/faq-bg.png');
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-size: contain;
+		border-radius: 45px;
+	}
+
+	div {
+		z-index: 2;
+	}
+}
+
+.brandCarsGallery {
+	position: relative;
+
+	.brandCarsGallery-bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-size: cover;
+		z-index: -1;
+	}
+}
+
+.imageText {
+	padding-top: 189px;
+	display: flex;
+	gap: 40px;
+	min-height: 866px;
+	&__info {
+		max-width: 866px;
+	}
+
+	&__image {
+		min-width: 50vw;
+		position: relative;
+
+		img {
+			border-top-right-radius: 254px;
+			border-bottom-right-radius: 45px;
+			object-fit: cover;
+		}
+	}
+
+	&__image-small {
+		min-width: 50vw;
+		position: relative;
+
+		img {
+			border-top-right-radius: 45px;
+			border-bottom-right-radius: 45px;
+			object-fit: cover;
+		}
+	}
+
+	&__reverse {
+		flex-direction: row-reverse;
+
+		img {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+			border-top-left-radius: 254px;
+			border-bottom-left-radius: 45px;
+		}
+	}
+
+	&__reverse {
+		flex-direction: row-reverse;
+		.imageText__image-small {
+			img {
+				border-top-right-radius: 0;
+				border-bottom-right-radius: 0;
+				border-top-left-radius: 45px;
+				border-bottom-left-radius: 45px;
+			}
+		}
+	}
+
+	h3 {
+		font-weight: 800;
+		font-size: 64px;
+		line-height: 71px;
+		@apply text-gray-800;
+	}
+
+	p {
+		@apply text-gray-800;
+		font-weight: 500;
+		font-size: 35px;
+		line-height: 43px;
+
+		&:not(:last-child) {
+			margin-bottom: 40px;
+		}
+	}
+}
+
+.bg-blue {
+	background: linear-gradient(158.85deg, #c1d9ee 13.95%, #aab0b7 150.81%);
+}
+
+.bg-gray {
+	background: linear-gradient(158.85deg, #aab0b7 13.95%, #aab0b7 150.81%);
+}
+
+.bg-button-shadow {
+	background: linear-gradient(93.85deg, #4e5053 3.15%, #d2d2d2 354.31%);
+}
+
+.bg-footer {
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0px 4px 40px 0px rgba(106, 110, 115, 0.25);
+	border-radius: 45px;
+}
+
+.bg-footer-img {
+	position: relative;
+	&::after {
+		content: '';
+		background-image: url('/uploads/default/logofooter.png');
+		position: absolute;
+		width: 100%;
+		height: 182px;
+		bottom: 0;
+		left: 0;
+	}
+
+	div {
+		z-index: 2;
+	}
+}
+
+.bg-hero-micro {
+	position: relative;
+	@apply bg-blue-400;
+	&::after {
+		content: '';
+		background-image: url('/uploads/default/logofooter.png');
+		position: absolute;
+		background-position: top;
+		width: 100%;
+		height: 100%;
+		bottom: 0;
+		left: 0;
+	}
+
+	div {
+		z-index: 2;
+	}
+}
+
+.formWrapper {
+	input:not([type='checkbox']),
+	textarea {
+		@apply bg-gray-200;
+		border-radius: 45px;
+		min-height: 75px;
+		padding-left: 35px;
+
+		&::placeholder {
+			@apply text-gray-800;
+			font-size: 16px;
+			line-height: 20px;
+			font-weight: 500;
+		}
+	}
+
+	textarea {
+		min-height: 181px;
+		padding-top: 24px;
+	}
+
+	.mantine-Checkbox-body {
+		height: 38px;
+		width: 38px;
+
+		input {
+			height: 38px;
+			width: 38px;
+			border-radius: 9999px;
+			border-width: 2px;
+			cursor: pointer;
+		}
+
+		input + svg {
+			width: 100%;
+			top: 90%;
+			left: 45%;
+		}
+	}
+
+	.bg-primary-form {
+		min-height: 124px;
+		min-width: 564px;
+		border-radius: 45px;
+		text-transform: uppercase;
+		font-size: 36px;
+		font-weight: 700;
+		line-height: 43.88px;
+	}
+
+	.m_5f75b09e {
+		margin: 0 !important;
+	}
+
+	.m_8f816625 {
+		margin-left: 5px;
+	}
+
+	.m_8e8a99cc {
+		position: absolute;
+		bottom: -20px;
+		left: 0;
+	}
+}
+
+.article {
+	max-width: 1300px;
+	font-size: 35px;
+	line-height: 43px;
+	font-weight: 500;
+	@apply text-gray-800;
+
+	strong {
+		font-weight: 700;
+	}
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		li {
+			display: flex;
+			gap: 12px;
+			&::before {
+				content: '';
+				margin-top: 18px;
+				width: 8px;
+				height: 8px;
+				background: #4e5053;
+				border-radius: 50%;
+				display: block;
+			}
+		}
+	}
+
+	&-header {
+		box-shadow: 2px 2px 20px 0px rgba(0, 0, 0, 0.25);
+		border-radius: 0px 254px 45px 0px;
+	}
+}
+
+.article-wrapper {
+	.bg-hero-micro {
+		position: absolute;
+		height: 300px;
+		width: 100%;
+		top: 0;
+	}
+}
+
+.form-search {
+	select {
+		border-radius: 11px;
+		border-width: 3px;
+		@apply border-gray-200;
+		padding-left: 16px;
+		padding-right: 16px;
+		padding-top: 12px;
+		padding-bottom: 12px;
+		appearance: none;
+		position: relative;
+
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		background: transparent;
+		background-image: url('/uploads/default/right-arrow.svg');
+		background-repeat: no-repeat;
+		background-position-x: 97%;
+		background-position-y: 18px;
+	}
+}
