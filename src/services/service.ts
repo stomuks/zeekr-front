@@ -5,7 +5,9 @@ import { ICar } from '../shared/types/car.types'
 
 export const BrandService = {
 	async getBrands() {
-		return axiosClassic.get<IBrand[]>(getBrandsUrl(''))
+		return {
+			data: []
+		}
 	}
 }
 
@@ -28,7 +30,9 @@ export const CarService = {
 	},
 
 	async getCarsTestDrive() {
-		return axiosClassic.get<ICar[]>(getCarsUrl('/by-testdrive'))
+		return {
+			data: []
+		}
 	},
 
 	async getCarsByBrand(brand: string) {
