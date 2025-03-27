@@ -1,4 +1,4 @@
-import { Home } from '@/components/screens/home/Home'
+import { Home } from '@/components/screens/Home'
 
 export default function CarPage() {
 	return <Home />

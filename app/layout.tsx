@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 import '@mantine/core/styles.css'
-import './globals.scss'
+import '@/app/globals.scss'
 import { ColorSchemeScript, MantineProvider } from '@mantine/core'
 import { Notifications } from '@mantine/notifications'
 import Head from 'next/head'
+import ProgressBar from '@/components/sections/progressbar'
 
 export const metadata: Metadata = {
 	title: 'SGM Motors',
@@ -21,12 +22,14 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang='en'>
+		<html lang='ru'>
 			<Head>
 				<ColorSchemeScript />
 			</Head>
 			<body className={`${montserrat.className} antialiased bg-gray-100`}>
+				<ProgressBar />
 				<MantineProvider>
+					<div className='bg-gray-200 min-h-20 md:min-h-[130px]'></div>
 					{children}
 					<Notifications className='fixed top-[20px] right-[10px] z-50' />
 				</MantineProvider>

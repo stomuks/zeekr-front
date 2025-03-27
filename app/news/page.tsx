@@ -1,5 +1,5 @@
-import { News } from '@/components/screens/news/News'
+import { NewsPage } from '@/components/screens/News'
 
-export default function NewsPage() {
-	return <News />
+export default function News() {
+	return <NewsPage />
 }

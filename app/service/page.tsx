@@ -1,4 +1,4 @@
-import { Service } from '@/components/screens/service/Service'
+import { Service } from '@/components/screens/Service'
 
 export default function ServicePage() {
 	return <Service />

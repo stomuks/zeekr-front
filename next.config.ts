@@ -8,18 +8,6 @@ const nextConfig: NextConfig = {
 		APP_ENV: process.env.REACT_APP_ENV,
 		APP_TELEGRAM_BOT_ID: process.env.REACT_APP_TELEGRAM_BOT_ID,
 		APP_TELEGRAM_BOT_TOKEN: process.env.REACT_APP_TELEGRAM_CHAT_ID
-	},
-	async rewrites() {
-		return [
-			{
-				source: '/api/:path*',
-				destination: 'http://localhost:4200/api/:path*'
-			},
-			{
-				source: '/uploads/:path*',
-				destination: 'http://localhost:4200/uploads/:path*'
-			}
-		]
 	}
 }
 

@@ -1,16 +1,15 @@
 import { FC } from 'react'
-import { Navigation } from './navigation/Navigation'
-import { ScrollableHeader } from './Scrollable-header'
-import { Footer } from './footer/footer'
+import { Navigation } from '@/components/layout/Navigation'
+import { ScrollableHeader } from '@/components/layout/Scrollable-header'
+import { Footer } from '@/components/layout/footer'
 
 export const Layout: FC<{ children: React.ReactNode }> = ({ children }) => {
 	return (
-		<div>
-			<div className='pt-[130px] bg-gray-200'></div>
+		<div className='min-h-screen flex flex-col justify-between'>
 			<ScrollableHeader>
 				<Navigation />
 			</ScrollableHeader>
-			{children}
+			<main>{children}</main>
 			<Footer />
 		</div>
 	)

@@ -28,18 +28,13 @@ export const ScrollableHeader = ({
 	})
 
 	return (
-		<div
-			className={cn(
-				`fixed top-0 z-50 w-[100vw] ${RemoveScroll.classNames.fullWidth}`
-			)}
+		<motion.div
+			initial={{ y: 0 }}
+			animate={{ y: !hidden ? 0 : -131 }}
+			transition={{ type: 'spring', stiffness: 200, damping: 30 }}
+			className='fixed top-0 z-50 w-[100vw] ${RemoveScroll.classNames.fullWidth}'
 		>
-			<motion.div
-				initial={{ y: 0 }}
-				animate={{ y: !hidden ? 0 : -131 }}
-				transition={{ type: 'spring', stiffness: 200, damping: 30 }}
-			>
-				{children}
-			</motion.div>
-		</div>
+			{children}
+		</motion.div>
 	)
 }

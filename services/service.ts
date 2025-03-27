@@ -1,46 +1,21 @@
-import { getBrandsUrl, getCarsUrl } from '../config/api.config'
-import { IBrand } from '../shared/types/brands.types'
-import { axiosClassic } from '../api/interceptors'
-import { ICar } from '../shared/types/car.types'
-
-export const BrandService = {
-	async getBrands() {
-		return {
-			data: []
-		}
-	}
-}
+import {
+	getCarsTestDriveUrl,
+	getCarsUrl,
+	getNewCarsUrl
+} from '@/config/api.config'
+import { axiosInstance } from '@/services/instance'
+import { ICar, ICarOld } from '@/shared/types/car.types'
 
 export const CarService = {
-	async getCars(field?: string, searchTerm?: string) {
-		return {
-			data: []
-		}
-	},
-
-	async getCarById(id: string) {
-		return axiosClassic.get<ICar>(getCarsUrl(`/${id}`))
-	},
-
-	async getCarBySlug(slug: string) {
-		return axiosClassic.get<ICar>(getCarsUrl(`/by-slug/${slug}`))
+	async getCars() {
+		return axiosInstance.get<ICarOld[]>(getCarsUrl(''))
 	},
 
 	async getCarsTestDrive() {
-		return {
-			data: []
-		}
+		return axiosInstance.get<ICarOld[]>(getCarsTestDriveUrl(''))
 	},
 
-	async getCarsByBrand(brand: string) {
-		return {
-			data: []
-		}
-	},
-
-	async getCarsByBrandAndTestDrive(brand: string) {
-		return {
-			data: []
-		}
+	async getNewCars() {
+		return axiosInstance.get<ICar[]>(getNewCarsUrl(''))
 	}
 }

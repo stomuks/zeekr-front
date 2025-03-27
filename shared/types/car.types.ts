@@ -1,6 +1,8 @@
+import { Brand, Car, NewCar } from '@prisma/client'
+
 export interface ICarImageText {
-	image: string
 	title: string
+	image: string
 	description: string[]
 }
 
@@ -17,28 +19,16 @@ export interface ICarInteriorColor {
 	colorSecond: string
 }
 
-export interface ICar {
-	_id: string
-	name: string
-	model: string
-	complectation: string
-	description: string
-	imageUrl: string
-	typeEngine: string
-	year: number
-	price: number
-	length: number
-	width: number
-	height: number
-	wheelbase: number
-	engine: number
-	testDrive?: boolean
-	slug: string
-	previewImage: string
-	interior: ICarInteriorColor[]
-	exteriorTitle: string
-	brand: string
-	content: ICarImageText[]
-	gallery: string[]
+export interface ICar extends NewCar {}
+
+export interface ICarOld extends Car {
+	Brand?: Brand
+}
+
+export interface ICarOldWith
+	extends Omit<Car, 'exterior' | 'interior' | 'content'> {
+	Brand?: Brand
 	exterior: ICarExteriorColor[]
+	interior: ICarInteriorColor[]
+	content: ICarImageText[]
 }

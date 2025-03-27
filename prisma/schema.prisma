@@ -8,10 +8,11 @@ datasource db {
 }
 
 model Car {
-    id            Int                @id @default(autoincrement())
+    id            Int      @id @unique @default(autoincrement())
     name          String
     model         String
     complectation String
+    testDrive     Boolean? @default(false)
     description   String
     imageUrl      String
     typeEngine    String
@@ -22,57 +23,73 @@ model Car {
     height        Float
     wheelbase     Float
     engine        Float
-    testDrive     Boolean?
     slug          String
     previewImage  String
-    interior      CarInteriorColor[]
+    heroImage     String
+    interior      Json
     exteriorTitle String
-    brand         String
-    content       CarImageText[]
+    content       Json
     gallery       String[]
-    exterior      CarExteriorColor[]
-    Brand         Brand?             @relation(fields: [brandId], references: [id])
-    brandId       Int?
+    exterior      Json
+    Brand         Brand    @relation(fields: [brandId], references: [id])
+    brandId       Int
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }
 
 model Brand {
-    id   Int    @id @default(autoincrement())
-    name String
-    url  String
-    icon String
-    cars Car[]
+    id               Int      @id @default(autoincrement())
+    heroImg          String
+    notesImg         String
+    imageImg         String
+    description      String
+    descriptionNotes String
+    titleImage       String
+    descriptionImage String[]
+    name             String   @unique
+    url              String
+    icon             String
+    cars             Car[]
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }
 
-model CarImageText {
+model NewCar {
+    id            Int      @id @default(autoincrement())
+    name          String
+    model         String
+    complectation String
+    Brand         String
+    description   String
+    imageUrl      String
+    typeEngine    String
+    typeCar       String
+    capacity      Int
+    year          Int
+    price         Float
+    engine        Float
+    testDrive     Boolean? @default(false)
+    slug          String   @unique
+    brand         String
+    gallery       String[]
+    maxSpeed      Float
+    powerReserve  Int
+    drive         String
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model News {
     id          Int      @id @default(autoincrement())
     image       String
     title       String
+    content     String[]
     description String[]
-    carId       Int
-    Car         Car      @relation(fields: [carId], references: [id])
-}
-
-model CarExteriorColor {
-    id       Int    @id @default(autoincrement())
-    name     String
-    imageUrl String
-    color    String
-    carId    Int
-    Car      Car    @relation(fields: [carId], references: [id])
-}
-
-model CarInteriorColor {
-    id          Int    @id @default(autoincrement())
-    name        String
-    imageUrl    String
-    colorFirst  String
-    colorSecond String
-    carId       Int
-    Car         Car    @relation(fields: [carId], references: [id])
+    slug        String   @unique
+    gallery     String[]
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
 }

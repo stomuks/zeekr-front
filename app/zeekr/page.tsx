@@ -1,5 +1,5 @@
-import { Zeekr } from '@/components/screens/zeekr/Zeekr'
+import { Brand } from '@/components/screens/Brand'
 
 export default function CarPage() {
-	return <Zeekr />
+	return <Brand slug='zeekr' />
 }
