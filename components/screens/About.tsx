@@ -10,14 +10,12 @@ import { HeroMicroQuote } from '@/components/sections/heroMicroQuote'
 import { CtaSocial } from '@/components/sections/ctaSocial'
 import { ImageText } from '../sections/imageText'
 
-export const About: FC = async () => {
+export const About: FC = () => {
 	const heroProps = {
 		title: '',
 		description: '',
 		imageUrl: '/default/water.png'
 	}
-
-	const content = aboutContent
 
 	const heroMicroQuote = {
 		title: 'SGM',
@@ -30,7 +28,7 @@ export const About: FC = async () => {
 			<HeroSmall {...heroProps} />
 			<HeroMicroQuote {...heroMicroQuote} />
 			<div className='bg-imageText pb-20 xl:pb-[188px]'>
-				{content.map((item: ICarImageText, index) => {
+				{aboutContent.map((item: ICarImageText, index) => {
 					return <ImageText key={index} data={item} index={index + 1} />
 				})}
 				<div className='container'>
