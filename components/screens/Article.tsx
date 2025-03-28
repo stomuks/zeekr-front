@@ -1,4 +1,3 @@
-import { IArticle } from '@/shared/types/imageText.types'
 import { FC } from 'react'
 import { HeroArticle } from '@/components/sections/heroArticle'
 import { LastNews } from '@/components/sections/lastNews'

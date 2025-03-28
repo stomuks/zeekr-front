@@ -6,6 +6,7 @@ import { ColorSchemeScript, MantineProvider } from '@mantine/core'
 import { Notifications } from '@mantine/notifications'
 import Head from 'next/head'
 import ProgressBar from '@/components/sections/progressbar'
+import { Suspense } from 'react'
 
 export const metadata: Metadata = {
 	title: 'SGM Motors',
@@ -27,7 +28,9 @@ export default function RootLayout({
 				<ColorSchemeScript />
 			</Head>
 			<body className={`${montserrat.className} antialiased bg-gray-100`}>
-				<ProgressBar />
+				<Suspense>
+					<ProgressBar />
+				</Suspense>
 				<MantineProvider>
 					<div className='bg-gray-200 min-h-20 md:min-h-[130px]'></div>
 					{children}
