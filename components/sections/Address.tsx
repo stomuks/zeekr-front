@@ -32,10 +32,10 @@ export const Address: FC<IAddress> = data => {
 							{data.officialName && <p>{data.officialName}</p>}
 						</div>
 						{data.unp && (
-							<p className='text-2xl'>
+							<p className='text-2xl break-words'>
 								УНП: {data.unp}
 								{data.bankaddress && ' ' + data.bankaddress}{' '}
-								{data.bank && ' <br />' + data.bank}
+								{data.bank && ' ' + data.bank}
 							</p>
 						)}
 						{data.button && (

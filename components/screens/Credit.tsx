@@ -18,7 +18,7 @@ export const Credit: FC = async () => {
 			<HeroSmall {...heroProps} />
 			<CtaCredit />
 			<ContentCredit />
-			<div className='mb-[118px]'>
+			<div className='mb-10 md:mb-[118px]'>
 				<Banks />
 			</div>
 			<FormWrapper>
