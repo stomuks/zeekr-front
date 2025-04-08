@@ -7,6 +7,7 @@ import { Notifications } from '@mantine/notifications'
 import Head from 'next/head'
 import ProgressBar from '@/components/sections/progressbar'
 import { Suspense } from 'react'
+import { YMInitializer } from 'react-yandex-metrika'
 
 export const metadata: Metadata = {
 	title: 'SGM Motors',
@@ -29,6 +30,15 @@ export default function RootLayout({
 			</Head>
 			<body className={`${montserrat.className} antialiased bg-gray-100`}>
 				<Suspense>
+					<YMInitializer
+						accounts={[100870448]}
+						options={{
+							clickmap: true,
+							trackLinks: true,
+							accurateTrackBounce: true,
+							webvisor: true
+						}}
+					/>
 					<ProgressBar />
 				</Suspense>
 				<MantineProvider>
