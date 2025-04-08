@@ -7,6 +7,8 @@ import { Notifications } from '@mantine/notifications'
 import Head from 'next/head'
 import ProgressBar from '@/components/sections/progressbar'
 import { Suspense } from 'react'
+import Script from 'next/script'
+import YandexMetrika from '@/components/layout/YandexMetrika'
 
 export const metadata: Metadata = {
 	title: 'SGM Motors',
@@ -28,6 +30,24 @@ export default function RootLayout({
 				<ColorSchemeScript />
 			</Head>
 			<body className={`${montserrat.className} antialiased bg-gray-100`}>
+				<Script id='metrika-counter' strategy='afterInteractive'>
+					{`(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+					m[i].l=1*new Date();
+					for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+					k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+					(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+				
+					ym(100870448, "init", {
+						defer: true,
+						clickmap:true,
+						trackLinks:true,
+						accurateTrackBounce:true,
+						webvisor:true
+					});`}
+				</Script>
+				<Suspense fallback={<></>}>
+					<YandexMetrika />
+				</Suspense>
 				<Suspense>
 					<ProgressBar />
 				</Suspense>
