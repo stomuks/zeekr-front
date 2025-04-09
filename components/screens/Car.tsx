@@ -11,6 +11,7 @@ import { IImageText } from '@/shared/types/imageText.types'
 import { prisma } from '@/prisma/prisma-client'
 import { CarGallery } from '@/components/sections/carGallery'
 import { CarNameGallery } from '@/components/sections/carNameGallery'
+import { FreeCta } from '../sections/FreeCta'
 
 export const Car: FC<ICarOldWith> = async car => {
 	const heroProps = {
@@ -49,6 +50,7 @@ export const Car: FC<ICarOldWith> = async car => {
 		<Layout>
 			<HeroSmall {...heroProps} />
 			{cars.length > 0 && <CarGallery cars={cars} title='авто в наличии' />}
+			<FreeCta />
 			<CarColor data={car.exterior} title={car.exteriorTitle} />
 			<div className='pb-20 xl:pb-[188px]'>
 				{content.map((item: ICarImageText, index) => {
