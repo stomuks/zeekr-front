@@ -48,6 +48,7 @@ export const Car: FC<ICarOldWith> = async car => {
 	return (
 		<Layout>
 			<HeroSmall {...heroProps} />
+			{cars.length > 0 && <CarGallery cars={cars} title='авто в наличии' />}
 			<CarColor data={car.exterior} title={car.exteriorTitle} />
 			<div className='pb-20 xl:pb-[188px]'>
 				{content.map((item: ICarImageText, index) => {
@@ -56,7 +57,6 @@ export const Car: FC<ICarOldWith> = async car => {
 			</div>
 			{car.interior.length > 0 && <CarInterior data={car.interior} />}
 			<CarPageGallery data={car.gallery} />
-			{cars.length > 0 && <CarGallery cars={cars} title='авто в наличии' />}
 			{carsModel.length > 0 && <CarNameGallery cars={carsModel} />}
 			<Cta />
 		</Layout>

@@ -18,7 +18,7 @@ export const Address: FC<IAddress> = data => {
 							className='text-2xl xl:text-[40px] leading-[49px] font-bold'
 							href={`tel: ${data.phone}`}
 						>
-							+375 (29) 666-63-53
+							{data.phone}
 						</a>
 						<div>
 							{data.workingTime.map((item: string, index: number) => (
